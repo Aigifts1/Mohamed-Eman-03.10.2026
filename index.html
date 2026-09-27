@@ -1,1 +1,1995 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
 
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+      maximum-scale=1.0, user-scalable=no">
+
+<meta name="theme-color" content="#050505">
+
+<title>Mohamed & Eman | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    font-family:"Cairo",sans-serif;
+    overflow-x:hidden;
+}
+
+button,
+a{
+    font-family:inherit;
+}
+
+:root{
+    --gold:#d9b76b;
+    --gold-light:#f0d38d;
+    --gold-dark:#8d6829;
+    --black:#050505;
+    --cream:#f6efe2;
+}
+
+/* =========================================================
+   INTRO SCREEN
+========================================================= */
+
+#intro{
+
+    position:fixed;
+    inset:0;
+
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #332715 0%,
+        #120f0a 35%,
+        #050505 75%
+    );
+
+    transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease,
+    transform 1.2s ease;
+}
+
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.04);
+}
+
+.intro-box{
+
+    width:min(92%,520px);
+
+    padding:55px 25px;
+
+    border:1px solid rgba(217,183,107,.5);
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(25,22,17,.95),
+        rgba(5,5,5,.96)
+    );
+
+    box-shadow:
+    0 0 100px rgba(217,183,107,.08),
+    inset 0 0 50px rgba(217,183,107,.03);
+}
+
+.intro-line{
+
+    width:80px;
+    height:1px;
+
+    background:var(--gold);
+
+    margin:auto;
+    margin-bottom:25px;
+}
+
+.invited{
+
+    font-size:11px;
+
+    letter-spacing:6px;
+
+    color:var(--gold);
+}
+
+.intro-names{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:78px;
+
+    font-weight:400;
+
+    line-height:1;
+
+    margin:20px 0 12px;
+}
+
+.intro-names span{
+    color:var(--gold);
+}
+
+.intro-date{
+
+    color:#ccc;
+
+    font-size:12px;
+
+    letter-spacing:5px;
+}
+
+.intro-text{
+
+    color:#c5c5c5;
+
+    line-height:2;
+
+    font-size:14px;
+
+    margin:28px auto;
+
+    max-width:370px;
+}
+
+.open-button{
+
+    border:1px solid var(--gold);
+
+    color:#0a0907;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f0d38d,
+        #a77b30
+    );
+
+    padding:13px 32px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.4);
+
+    transition:.3s;
+}
+
+.open-button:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    height:100svh;
+
+    min-height:650px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+}
+
+.hero-image{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:0;
+}
+
+.hero-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:
+    brightness(.40)
+    contrast(1.05)
+    saturate(.8);
+
+    transform:scale(1.04);
+
+    animation:heroZoom 15s ease-out forwards;
+}
+
+@keyframes heroZoom{
+
+    from{
+        transform:scale(1.08);
+    }
+
+    to{
+        transform:scale(1);
+    }
+}
+
+.hero-image:after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,.1),
+        rgba(0,0,0,.2) 40%,
+        #050505 100%
+    );
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    padding:30px 20px 70px;
+}
+
+.hero-date{
+
+    color:var(--gold);
+
+    font-size:12px;
+
+    letter-spacing:6px;
+}
+
+.hero-names{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(75px,18vw,155px);
+
+    line-height:.9;
+
+    font-weight:400;
+
+    margin:20px 0;
+}
+
+.hero-names span{
+    color:var(--gold);
+}
+
+.hero-sub{
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    color:#eee;
+}
+
+.scroll-hint{
+
+    margin-top:35px;
+
+    color:#c7a45f;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+
+    50%{
+        transform:translateY(8px);
+    }
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section{
+
+    padding:100px 20px;
+}
+
+.dark{
+    background:#080808;
+}
+
+.light{
+
+    background:var(--cream);
+
+    color:#171717;
+}
+
+.container{
+
+    max-width:1050px;
+
+    margin:auto;
+}
+
+.heading{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.heading small{
+
+    color:#a37b35;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+}
+
+.heading h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:65px;
+
+    font-weight:400;
+
+    margin-top:8px;
+
+    line-height:1;
+}
+
+/* =========================================================
+   WELCOME MESSAGE
+========================================================= */
+
+.welcome{
+
+    max-width:800px;
+
+    margin:auto;
+
+    text-align:center;
+}
+
+.typing-text{
+
+    min-height:210px;
+
+    font-size:18px;
+
+    line-height:2.5;
+
+    font-weight:400;
+}
+
+.cursor{
+
+    display:inline-block;
+
+    width:2px;
+
+    height:1.1em;
+
+    background:#ad843d;
+
+    margin-right:3px;
+
+    vertical-align:-3px;
+
+    animation:cursorBlink .8s infinite;
+}
+
+@keyframes cursorBlink{
+
+    50%{
+        opacity:0;
+    }
+}
+
+.signature{
+
+    font-family:"Great Vibes",cursive;
+
+    color:#a77b30;
+
+    font-size:58px;
+
+    margin-top:20px;
+}
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.details-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.detail-card{
+
+    text-align:center;
+
+    padding:38px 20px;
+
+    border:1px solid #594722;
+
+    background:
+    linear-gradient(
+        145deg,
+        #171717,
+        #090909
+    );
+
+    transition:.4s;
+}
+
+.detail-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--gold);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.35);
+}
+
+.detail-icon{
+
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.detail-card h3{
+
+    color:var(--gold);
+
+    margin-bottom:10px;
+}
+
+.detail-card p{
+
+    color:#c7c7c7;
+
+    line-height:2;
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-section{
+
+    background:
+    radial-gradient(
+        circle at center top,
+        #342919,
+        #090909 65%
+    );
+
+    text-align:center;
+}
+
+.countdown{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:13px;
+}
+
+.time-box{
+
+    width:105px;
+
+    padding:20px 8px;
+
+    border:1px solid #66512b;
+
+    background:rgba(5,5,5,.75);
+
+    box-shadow:
+    inset 0 0 30px rgba(217,183,107,.025);
+}
+
+.time-box strong{
+
+    display:block;
+
+    color:var(--gold);
+
+    font-size:40px;
+
+    line-height:1.1;
+}
+
+.time-box span{
+
+    color:#aaa;
+
+    font-size:10px;
+}
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music-section{
+
+    background:var(--cream);
+
+    color:#111;
+}
+
+.music-player{
+
+    max-width:680px;
+
+    margin:auto;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #171717,
+        #080808
+    );
+
+    border:1px solid #654e28;
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.25);
+}
+
+.music-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.album{
+
+    width:68px;
+    height:68px;
+
+    object-fit:cover;
+
+    border-radius:13px;
+
+    border:1px solid #70572b;
+}
+
+.song-info{
+
+    flex:1;
+
+    text-align:right;
+}
+
+.song-info strong{
+
+    display:block;
+
+    color:white;
+
+    font-size:15px;
+}
+
+.song-info small{
+
+    color:#999;
+}
+
+.play-button{
+
+    width:50px;
+    height:50px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    color:#111;
+
+    cursor:pointer;
+
+    font-size:19px;
+}
+
+.progress{
+
+    width:100%;
+
+    margin-top:20px;
+
+    accent-color:var(--gold);
+
+    cursor:pointer;
+}
+
+.audio-times{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    direction:ltr;
+
+    color:#888;
+
+    font-size:10px;
+}
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-box{
+
+    text-align:center;
+
+    max-width:750px;
+
+    margin:auto;
+}
+
+.location-box p{
+
+    color:#ccc;
+
+    line-height:2;
+
+    margin-bottom:25px;
+}
+
+.map-button{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:#17120a;
+
+    background:
+    linear-gradient(
+        135deg,
+        #edcf8a,
+        #a97d32
+    );
+
+    padding:13px 30px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    box-shadow:0 12px 35px #0006;
+}
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+.final-message{
+
+    max-width:800px;
+
+    margin:auto;
+
+    text-align:center;
+
+    line-height:2.6;
+
+    font-size:18px;
+
+    color:#ddd;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    text-align:center;
+
+    background:#030303;
+
+    padding:65px 20px;
+}
+
+.footer-names{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:60px;
+}
+
+.footer-names span{
+    color:var(--gold);
+}
+
+.footer-date{
+
+    margin-top:10px;
+
+    color:#777;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+}
+
+/* =========================================================
+   MUSIC FLOATING BUTTON
+========================================================= */
+
+#musicFloat{
+
+    position:fixed;
+
+    left:18px;
+    bottom:18px;
+
+    z-index:999;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    border:1px solid var(--gold);
+
+    background:#111;
+
+    color:var(--gold);
+
+    cursor:pointer;
+
+    box-shadow:
+    0 12px 40px rgba(0,0,0,.6);
+}
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.hearts{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:5;
+
+    overflow:hidden;
+}
+
+.heart{
+
+    position:absolute;
+
+    bottom:-40px;
+
+    color:#d9b76b;
+
+    opacity:0;
+
+    animation:
+    heartUp linear forwards;
+}
+
+@keyframes heartUp{
+
+    0%{
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:.45;
+    }
+
+    100%{
+        transform:
+        translateY(-110vh)
+        rotate(300deg);
+
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .intro-names{
+        font-size:61px;
+    }
+
+    .heading h2{
+        font-size:53px;
+    }
+
+    .details-grid{
+        grid-template-columns:1fr;
+    }
+
+    .time-box{
+        width:78px;
+    }
+
+    .time-box strong{
+        font-size:29px;
+    }
+
+    .typing-text{
+        font-size:16px;
+        min-height:240px;
+    }
+
+    .section{
+        padding:80px 18px;
+    }
+
+    .hero-content{
+        padding-bottom:55px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<div id="intro">
+
+    <div class="intro-box">
+
+        <div class="intro-line"></div>
+
+        <div class="invited">
+            YOU ARE INVITED
+        </div>
+
+        <div class="intro-names">
+            Mohamed <span>&</span> Eman
+        </div>
+
+        <div class="intro-date">
+            03 · 10 · 2026
+        </div>
+
+        <div class="intro-text">
+
+            وجودك هنا مش صدفة... 🤍
+            <br>
+            إنت من الناس اللي فرحتنا
+            متكملش من غيرهم.
+
+        </div>
+
+        <button
+        class="open-button"
+        id="openInvitation">
+
+            افتح دعوتنا ♥️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     AUDIO
+===================================================== -->
+
+<audio
+id="weddingAudio"
+preload="auto"
+loop>
+
+    <source
+    src="tito.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<button id="musicFloat">
+
+    ♫
+
+</button>
+
+
+<div class="hearts" id="hearts"></div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-image">
+
+        <img
+        src="tito.jpg"
+        alt="Mohamed & Eman">
+
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-date">
+
+            03 · 10 · 2026
+
+        </div>
+
+
+        <div class="hero-names">
+
+            Mohamed
+            <span>&</span>
+            Eman
+
+        </div>
+
+
+        <div class="hero-sub">
+
+            FOREVER BEGINS HERE
+
+        </div>
+
+
+        <div class="scroll-hint">
+
+            SCROLL TO DISCOVER ↓
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WELCOME
+===================================================== -->
+
+<section class="section light">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <small>
+                A MESSAGE FOR YOU
+            </small>
+
+            <h2>
+                رسالة من القلب
+            </h2>
+
+        </div>
+
+
+        <div class="welcome">
+
+            <div
+            class="typing-text"
+            id="typingText">
+
+                <span id="typed"></span>
+
+                <span class="cursor"></span>
+
+            </div>
+
+
+            <div class="signature">
+
+                Mohamed & Eman
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DETAILS
+===================================================== -->
+
+<section class="section dark">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <small>
+                THE BIG DAY
+            </small>
+
+            <h2>
+                تفاصيل يومنا
+            </h2>
+
+        </div>
+
+
+        <div class="details-grid">
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    📅
+                </div>
+
+                <h3>
+                    التاريخ
+                </h3>
+
+                <p>
+                    Saturday
+                    <br>
+                    03 October 2026
+                </p>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    💍
+                </div>
+
+                <h3>
+                    المناسبة
+                </h3>
+
+                <p>
+                    Wedding Day
+                    <br>
+                    Mohamed & Eman
+                </p>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ⏰
+                </div>
+
+                <h3>
+                    الموعد
+                </h3>
+
+                <p>
+                    7:00 PM
+                    <br>
+                    مساءً
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section class="section countdown-section">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <small>
+                COUNTDOWN
+            </small>
+
+            <h2>
+                لحظات ونلتقي
+            </h2>
+
+        </div>
+
+
+        <div class="countdown">
+
+
+            <div class="time-box">
+
+                <strong id="days">
+                    00
+                </strong>
+
+                <span>
+                    يوم
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <strong id="hours">
+                    00
+                </strong>
+
+                <span>
+                    ساعة
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <strong id="minutes">
+                    00
+                </strong>
+
+                <span>
+                    دقيقة
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <strong id="seconds">
+                    00
+                </strong>
+
+                <span>
+                    ثانية
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<section class="section music-section">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <small>
+                OUR SONG
+            </small>
+
+            <h2>
+                أغنيتنا
+            </h2>
+
+        </div>
+
+
+        <div class="music-player">
+
+
+            <div class="music-top">
+
+
+                <img
+                src="tito.jpg"
+                class="album"
+                alt="Mohamed & Eman">
+
+
+                <div class="song-info">
+
+                    <strong>
+                        Mohamed & Eman
+                    </strong>
+
+                    <small>
+                        Our Wedding Song
+                    </small>
+
+                </div>
+
+
+                <button
+                class="play-button"
+                id="playButton">
+
+                    ▶
+
+                </button>
+
+
+            </div>
+
+
+            <input
+            class="progress"
+            id="progress"
+            type="range"
+            min="0"
+            max="100"
+            value="0">
+
+
+            <div class="audio-times">
+
+                <span id="currentTime">
+                    0:00
+                </span>
+
+                <span id="duration">
+                    0:00
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LOCATION
+===================================================== -->
+
+<section class="section dark">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <small>
+                THE VENUE
+            </small>
+
+            <h2>
+                مكان فرحتنا
+            </h2>
+
+        </div>
+
+
+        <div class="location-box">
+
+            <p>
+
+                مستنيينكم تشاركونا أجمل يوم
+                في حياتنا 🤍
+
+                <br>
+
+                اضغط على الزر للوصول إلى
+                موقع الفرح مباشرة.
+
+            </p>
+
+
+            <a
+            class="map-button"
+            href="https://maps.app.goo.gl/387uoNtVXpRmkVr47"
+            target="_blank"
+            rel="noopener">
+
+                📍 افتح موقع الفرح
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL MESSAGE
+===================================================== -->
+
+<section class="section light">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <small>
+                ONE MORE THING
+            </small>
+
+            <h2>
+                قبل ما تمشي
+            </h2>
+
+        </div>
+
+
+        <div class="final-message">
+
+            بما إنك وصلت لهنا،
+            <br>
+
+            يبقى أكيد إنت شخص غالي علينا جدًا ❤️
+
+            <br>
+
+            وجودك في يومنا ده
+            مش مجرد حضور...
+
+            <br>
+
+            إنت جزء من الفرحة،
+            وجزء من الذكريات
+            اللي هتفضل معانا العمر كله.
+
+            <br><br>
+
+            مستنيينك تشاركنا
+            اليوم اللي حلمنا بيه.
+
+            <br><br>
+
+            <strong>
+                وجودك هو أجمل هدية.
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-names">
+
+        Mohamed
+        <span>&</span>
+        Eman
+
+    </div>
+
+
+    <div class="footer-date">
+
+        FOREVER BEGINS HERE
+        ·
+        03.10.2026
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const intro =
+document.getElementById("intro");
+
+const openInvitation =
+document.getElementById("openInvitation");
+
+const audio =
+document.getElementById("weddingAudio");
+
+const musicFloat =
+document.getElementById("musicFloat");
+
+const playButton =
+document.getElementById("playButton");
+
+const progress =
+document.getElementById("progress");
+
+const currentTime =
+document.getElementById("currentTime");
+
+const duration =
+document.getElementById("duration");
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+function updateMusicButtons(){
+
+    if(audio.paused){
+
+        playButton.textContent = "▶";
+
+        musicFloat.textContent = "♫";
+
+    }else{
+
+        playButton.textContent = "❚❚";
+
+        musicFloat.textContent = "❚❚";
+
+    }
+
+}
+
+
+/*
+   نحاول تشغيل الأغنية تلقائيًا
+   بمجرد تحميل الصفحة.
+*/
+
+window.addEventListener("load", async function(){
+
+    try{
+
+        await audio.play();
+
+        updateMusicButtons();
+
+    }catch(error){
+
+        /*
+           المتصفح منع Autoplay.
+           هنحاول مرة أخرى بعد أول تفاعل.
+        */
+
+        musicFloat.style.display = "block";
+
+    }
+
+});
+
+
+/*
+   فتح الدعوة
+*/
+
+openInvitation.addEventListener(
+"click",
+async function(){
+
+    intro.classList.add("hide");
+
+    try{
+
+        await audio.play();
+
+        updateMusicButtons();
+
+    }catch(error){
+
+        console.log(
+        "Autoplay was blocked by browser."
+        );
+
+    }
+
+});
+
+
+/*
+   زر الموسيقى
+*/
+
+musicFloat.addEventListener(
+"click",
+async function(){
+
+    if(audio.paused){
+
+        try{
+
+            await audio.play();
+
+        }catch(error){
+
+            console.log(error);
+
+        }
+
+    }else{
+
+        audio.pause();
+
+    }
+
+    updateMusicButtons();
+
+});
+
+
+/*
+   زر Play داخل المشغل
+*/
+
+playButton.addEventListener(
+"click",
+async function(){
+
+    if(audio.paused){
+
+        await audio.play();
+
+    }else{
+
+        audio.pause();
+
+    }
+
+    updateMusicButtons();
+
+});
+
+
+/*
+   مدة الأغنية
+*/
+
+audio.addEventListener(
+"loadedmetadata",
+function(){
+
+    duration.textContent =
+    formatTime(audio.duration);
+
+});
+
+
+/*
+   تحديث شريط الأغنية
+*/
+
+audio.addEventListener(
+"timeupdate",
+function(){
+
+    if(audio.duration){
+
+        progress.value =
+        (audio.currentTime /
+        audio.duration) * 100;
+
+    }
+
+    currentTime.textContent =
+    formatTime(audio.currentTime);
+
+});
+
+
+/*
+   التحكم في الأغنية
+*/
+
+progress.addEventListener(
+"input",
+function(){
+
+    if(audio.duration){
+
+        audio.currentTime =
+        (progress.value / 100)
+        * audio.duration;
+
+    }
+
+});
+
+
+function formatTime(seconds){
+
+    if(!isFinite(seconds))
+        return "0:00";
+
+    const minutes =
+    Math.floor(seconds / 60);
+
+    const secs =
+    Math.floor(seconds % 60);
+
+    return minutes +
+    ":" +
+    String(secs).padStart(2,"0");
+
+}
+
+
+/* =========================================================
+   TYPING MESSAGE
+   حرف حرف + توقف بسيط بين الكلمات
+========================================================= */
+
+const welcomeMessage =
+"بما إنك وصلت لهنا، يبقى أكيد إنت شخص غالي علينا جدًا ❤️ ووجودك في يومنا ده مش مجرد حضور... إنت جزء من الفرحة، وجزء من الذكريات اللي هتفضل معانا العمر كله. شكرًا إنك هتشاركنا أجمل بداية في حكايتنا. مستنيينك تكون معانا ونعيش سوا أجمل لحظات يومنا.";
+
+const typed =
+document.getElementById("typed");
+
+let typingStarted = false;
+let charIndex = 0;
+
+
+/*
+   الكتابة حرف حرف
+*/
+
+function typeMessage(){
+
+    if(charIndex >= welcomeMessage.length)
+        return;
+
+
+    const character =
+    welcomeMessage.charAt(charIndex);
+
+    typed.textContent += character;
+
+    charIndex++;
+
+
+    let speed = 42;
+
+
+    /*
+       لو مسافة بين الكلمات
+       نعمل وقفة صغيرة.
+    */
+
+    if(character === " "){
+
+        speed = 115;
+
+    }
+
+
+    /*
+       وقفة أكبر بعد النقاط
+    */
+
+    if(
+        character === "." ||
+        character === "…" ||
+        character === "!"
+    ){
+
+        speed = 280;
+
+    }
+
+
+    setTimeout(
+        typeMessage,
+        speed
+    );
+
+}
+
+
+/*
+   يبدأ لما قسم الرسالة يدخل الشاشة
+*/
+
+const messageSection =
+document.querySelector(".welcome");
+
+const observer =
+new IntersectionObserver(
+function(entries){
+
+    entries.forEach(function(entry){
+
+        if(
+            entry.isIntersecting &&
+            !typingStarted
+        ){
+
+            typingStarted = true;
+
+            typeMessage();
+
+        }
+
+    });
+
+},
+{
+    threshold:.25
+});
+
+observer.observe(messageSection);
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+
+/*
+   تاريخ الفرح:
+   03 October 2026
+   الساعة 7 مساءً
+   بتوقيت القاهرة
+*/
+
+const weddingDate =
+new Date(
+"2026-10-03T19:00:00+03:00"
+).getTime();
+
+
+function updateCountdown(){
+
+    const now =
+    new Date().getTime();
+
+    let difference =
+    weddingDate - now;
+
+
+    if(difference < 0){
+
+        difference = 0;
+
+    }
+
+
+    const day =
+    Math.floor(
+        difference /
+        (1000 * 60 * 60 * 24)
+    );
+
+
+    const hour =
+    Math.floor(
+        (difference %
+        (1000 * 60 * 60 * 24))
+        /
+        (1000 * 60 * 60)
+    );
+
+
+    const minute =
+    Math.floor(
+        (difference %
+        (1000 * 60 * 60))
+        /
+        (1000 * 60)
+    );
+
+
+    const second =
+    Math.floor(
+        (difference %
+        (1000 * 60))
+        /
+        1000
+    );
+
+
+    document.getElementById(
+        "days"
+    ).textContent =
+    String(day).padStart(2,"0");
+
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+    String(hour).padStart(2,"0");
+
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+    String(minute).padStart(2,"0");
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+    String(second).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createHeart(){
+
+    const heart =
+    document.createElement("span");
+
+    heart.className = "heart";
+
+    heart.textContent =
+    Math.random() > .5
+    ? "♥"
+    : "♡";
+
+
+    heart.style.left =
+    Math.random() * 100 + "%";
+
+
+    heart.style.fontSize =
+    (12 + Math.random() * 18)
+    + "px";
+
+
+    heart.style.animationDuration =
+    (7 + Math.random() * 7)
+    + "s";
+
+
+    document
+    .getElementById("hearts")
+    .appendChild(heart);
+
+
+    setTimeout(
+        () => heart.remove(),
+        15000
+    );
+
+}
+
+
+setInterval(
+    createHeart,
+    1200
+);
+
+</script>
+
+</body>
+</html>
