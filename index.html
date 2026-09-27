@@ -1,1693 +1,1790 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Mohamed & Eman | Wedding Invitation</title>
-
-  <meta name="theme-color" content="#0b0907">
-  <meta name="description" content="Mohamed & Eman Wedding Invitation — 03 October 2026">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --gold: #d8b36a;
-      --gold-light: #f3d99a;
-      --cream: #f7f0e4;
-      --dark: #090806;
-      --dark-2: #12100d;
-      --muted: #b9afa1;
-      --glass: rgba(255,255,255,.055);
-      --border: rgba(216,179,106,.25);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--dark);
-      color: var(--cream);
-      font-family: "Cairo", sans-serif;
-      overflow-x: hidden;
-    }
-
-    body.locked {
-      overflow: hidden;
-    }
-
-    /* =========================
-       INTRO
-    ========================== */
-
-    .intro {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: #050403;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      transition:
-        opacity 1.3s ease,
-        visibility 1.3s ease;
-    }
-
-    .intro.hide {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .intro-photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      animation: introZoom 9s ease-out forwards;
-    }
-
-    @keyframes introZoom {
-      from {
-        transform: scale(1.08);
-      }
-      to {
-        transform: scale(1);
-      }
-    }
-
-    .intro::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,.62),
-          rgba(0,0,0,.12) 38%,
-          rgba(0,0,0,.72)
-        );
-    }
-
-    .intro::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      background:
-        radial-gradient(
-          circle at center,
-          transparent 20%,
-          rgba(0,0,0,.5) 100%
-        );
-      pointer-events: none;
-    }
-
-    .intro-content {
-      position: relative;
-      z-index: 3;
-      width: min(92%, 650px);
-      text-align: center;
-      animation: introContent 1.5s ease forwards;
-    }
-
-    @keyframes introContent {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .small-title {
-      font-size: 12px;
-      letter-spacing: 5px;
-      color: #fff;
-      margin-bottom: 22px;
-      text-transform: uppercase;
-    }
-
-    .invite-line {
-      width: 90px;
-      height: 1px;
-      margin: 0 auto 25px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--gold-light),
-        transparent
-      );
-    }
-
-    .intro-names {
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(58px, 14vw, 105px);
-      line-height: .95;
-      color: #fff;
-      text-shadow:
-        0 0 20px rgba(0,0,0,.7),
-        0 0 45px rgba(216,179,106,.2);
-      direction: ltr;
-    }
-
-    .intro-date {
-      margin-top: 25px;
-      font-size: 14px;
-      letter-spacing: 4px;
-      color: #fff;
-      direction: ltr;
-    }
-
-    .enter-btn {
-      margin-top: 38px;
-      border: 1px solid rgba(243,217,154,.65);
-      background: rgba(0,0,0,.28);
-      backdrop-filter: blur(12px);
-      color: white;
-      padding: 15px 34px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-family: "Cairo", sans-serif;
-      font-size: 13px;
-      letter-spacing: 1px;
-      transition: .4s;
-      box-shadow:
-        0 0 30px rgba(216,179,106,.12);
-    }
-
-    .enter-btn:hover {
-      background: rgba(216,179,106,.15);
-      border-color: var(--gold-light);
-      transform: translateY(-3px);
-      box-shadow:
-        0 10px 40px rgba(216,179,106,.18);
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 27px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      font-size: 10px;
-      color: rgba(255,255,255,.65);
-      letter-spacing: 2px;
-      animation: floatHint 2s infinite;
-    }
-
-    @keyframes floatHint {
-      0%,100% {
-        transform: translate(-50%,0);
-      }
-      50% {
-        transform: translate(-50%,7px);
-      }
-    }
-
-    /* =========================
-       MUSIC
-    ========================== */
-
-    .music-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 5000;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: rgba(10,8,6,.72);
-      backdrop-filter: blur(15px);
-      color: var(--gold-light);
-      cursor: pointer;
-      font-size: 20px;
-      box-shadow: 0 5px 30px rgba(0,0,0,.3);
-      transition: .3s;
-    }
-
-    .music-btn:hover {
-      transform: scale(1.08);
-      border-color: var(--gold);
-    }
-
-    .music-btn.playing {
-      animation: musicPulse 2s infinite;
-    }
-
-    @keyframes musicPulse {
-      50% {
-        box-shadow:
-          0 0 0 8px rgba(216,179,106,.05),
-          0 0 30px rgba(216,179,106,.22);
-      }
-    }
-
-    /* =========================
-       MAIN
-    ========================== */
-
-    main {
-      position: relative;
-      overflow: hidden;
-    }
-
-    section {
-      position: relative;
-      padding: 95px 20px;
-    }
-
-    .container {
-      width: min(1100px, 100%);
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title .mini {
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 4px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-
-    .section-title h2 {
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(48px, 10vw, 76px);
-      font-weight: 400;
-      direction: ltr;
-    }
-
-    .section-title .line {
-      width: 80px;
-      height: 1px;
-      margin: 16px auto;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--gold),
-        transparent
-      );
-    }
-
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          rgba(7,5,4,.72),
-          rgba(7,5,4,.85)
-        ),
-        url("tito.jpg") center/cover;
-      filter: blur(1px);
-      transform: scale(1.03);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: min(900px, 94%);
-    }
-
-    .hero-subtitle {
-      color: var(--gold-light);
-      letter-spacing: 5px;
-      font-size: 11px;
-      margin-bottom: 25px;
-      direction: ltr;
-    }
-
-    .hero-names {
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(72px, 15vw, 145px);
-      line-height: .9;
-      direction: ltr;
-      text-shadow:
-        0 0 35px rgba(216,179,106,.13);
-    }
-
-    .hero-date {
-      margin-top: 30px;
-      color: #fff;
-      font-size: 14px;
-      letter-spacing: 4px;
-      direction: ltr;
-    }
-
-    .gold-ring {
-      width: 170px;
-      height: 170px;
-      border: 1px solid rgba(216,179,106,.18);
-      border-radius: 50%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%,-50%);
-      pointer-events: none;
-    }
-
-    .gold-ring::before,
-    .gold-ring::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(216,179,106,.10);
-      border-radius: 50%;
-    }
-
-    .gold-ring::before {
-      inset: -25px;
-    }
-
-    .gold-ring::after {
-      inset: 25px;
-    }
-
-    /* =========================
-       WELCOME
-    ========================== */
-
-    .welcome {
-      background:
-        radial-gradient(
-          circle at 50% 20%,
-          rgba(216,179,106,.09),
-          transparent 40%
-        ),
-        var(--dark);
-      text-align: center;
-    }
-
-    .welcome-box {
-      width: min(850px, 100%);
-      margin: auto;
-    }
-
-    .typing-text {
-      color: #e8dfd2;
-      font-size: clamp(16px, 3vw, 20px);
-      line-height: 2.3;
-      font-weight: 300;
-      min-height: 210px;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 2px;
-      height: 21px;
-      background: var(--gold);
-      margin-right: 4px;
-      vertical-align: middle;
-      animation: blink .8s infinite;
-    }
-
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-    /* =========================
-       COUNTDOWN
-    ========================== */
-
-    .countdown-section {
-      background: #0d0b09;
-    }
-
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      width: min(700px, 100%);
-      margin: auto;
-    }
-
-    .time-box {
-      min-height: 115px;
-      border: 1px solid rgba(216,179,106,.18);
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.045),
-        rgba(255,255,255,.015)
-      );
-      backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .time-box strong {
-      color: var(--gold-light);
-      font-size: clamp(30px, 7vw, 45px);
-      font-weight: 400;
-      direction: ltr;
-    }
-
-    .time-box span {
-      color: var(--muted);
-      font-size: 10px;
-      margin-top: 6px;
-    }
-
-    /* =========================
-       DETAILS
-    ========================== */
-
-    .details {
-      background: var(--dark);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      border: 1px solid var(--border);
-      background: var(--glass);
-      padding: 35px 20px;
-      text-align: center;
-      transition: .5s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: rgba(216,179,106,.08);
-      filter: blur(20px);
-      top: -50px;
-      right: -50px;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(216,179,106,.5);
-    }
-
-    .card-icon {
-      font-size: 30px;
-      color: var(--gold);
-      margin-bottom: 17px;
-    }
-
-    .card h3 {
-      font-size: 17px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 2;
-    }
-
-    /* =========================
-       PHOTO
-    ========================== */
-
-    .photo-section {
-      padding: 100px 20px;
-      background: #080706;
-    }
-
-    .photo-frame {
-      width: min(750px, 100%);
-      margin: auto;
-      padding: 10px;
-      border: 1px solid rgba(216,179,106,.28);
-      background: rgba(255,255,255,.025);
-      box-shadow:
-        0 30px 100px rgba(0,0,0,.45);
-    }
-
-    .photo-frame img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .photo-caption {
-      text-align: center;
-      color: var(--gold-light);
-      font-family: "Great Vibes", cursive;
-      font-size: 40px;
-      margin-top: 25px;
-      direction: ltr;
-    }
-
-    /* =========================
-       STORY
-    ========================== */
-
-    .story {
-      background:
-        radial-gradient(
-          circle at 50% 50%,
-          rgba(216,179,106,.06),
-          transparent 50%
-        ),
-        #0b0907;
-      text-align: center;
-    }
-
-    .story-text {
-      width: min(750px, 100%);
-      margin: auto;
-      color: #d4c9ba;
-      line-height: 2.4;
-      font-size: 16px;
-      font-weight: 300;
-    }
-
-    .story-highlight {
-      display: block;
-      margin-top: 28px;
-      color: var(--gold-light);
-      font-family: "Great Vibes", cursive;
-      font-size: 43px;
-      direction: ltr;
-    }
-
-    /* =========================
-       LOCATION
-    ========================== */
-
-    .location {
-      text-align: center;
-      background: var(--dark);
-    }
-
-    .location-box {
-      width: min(650px, 100%);
-      margin: auto;
-      padding: 50px 25px;
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.015)
-        );
-    }
-
-    .location-icon {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    .location-box h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .location-box p {
-      color: var(--muted);
-      margin-bottom: 28px;
-      font-size: 14px;
-    }
-
-    .gold-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border: 1px solid var(--gold);
-      color: white;
-      text-decoration: none;
-      padding: 13px 28px;
-      border-radius: 40px;
-      transition: .35s;
-      background: rgba(216,179,106,.06);
-      font-size: 13px;
-      cursor: pointer;
-      font-family: "Cairo", sans-serif;
-    }
-
-    .gold-btn:hover {
-      background: var(--gold);
-      color: #090806;
-      transform: translateY(-3px);
-    }
-
-    /* =========================
-       ACTIONS
-    ========================== */
-
-    .actions {
-      background: #0b0907;
-      text-align: center;
-    }
-
-    .action-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      padding: 65px 20px;
-      text-align: center;
-      background: #060504;
-      border-top: 1px solid rgba(216,179,106,.1);
-    }
-
-    .footer-names {
-      font-family: "Great Vibes", cursive;
-      font-size: 55px;
-      direction: ltr;
-      color: var(--gold-light);
-    }
-
-    footer p {
-      margin-top: 12px;
-      color: #756e65;
-      font-size: 11px;
-      letter-spacing: 2px;
-    }
-
-    /* =========================
-       PARTICLES
-    ========================== */
-
-    .particles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 10;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: var(--gold-light);
-      border-radius: 50%;
-      opacity: .5;
-      animation: particleMove linear infinite;
-    }
-
-    @keyframes particleMove {
-      from {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-      15% {
-        opacity: .55;
-      }
-      85% {
-        opacity: .35;
-      }
-      to {
-        transform: translateY(-10vh);
-        opacity: 0;
-      }
-    }
-
-    /* =========================
-       REVEAL
-    ========================== */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(35px);
-      transition:
-        opacity 1s ease,
-        transform 1s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================
-       MOBILE
-    ========================== */
-
-    @media (max-width: 700px) {
-
-      section {
-        padding: 75px 18px;
-      }
-
-      .hero {
-        min-height: 92vh;
-      }
-
-      .hero-names {
-        font-size: 76px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .countdown {
-        gap: 7px;
-      }
-
-      .time-box {
-        min-height: 95px;
-      }
-
-      .time-box strong {
-        font-size: 29px;
-      }
-
-      .time-box span {
-        font-size: 9px;
-      }
-
-      .typing-text {
-        min-height: 280px;
-        font-size: 15px;
-        line-height: 2.2;
-      }
-
-      .footer-names {
-        font-size: 47px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#080706">
+<meta name="description" content="Mohamed & Eman Wedding Invitation">
+<title>Mohamed & Eman | Wedding</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#d8b36a;
+  --gold2:#f4dda5;
+  --cream:#f8f0e4;
+  --dark:#080706;
+  --dark2:#100e0b;
+  --muted:#aaa093;
+  --line:rgba(216,179,106,.25);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--dark);
+  color:var(--cream);
+  font-family:Cairo,sans-serif;
+  overflow-x:hidden;
+}
+
+body.locked{overflow:hidden}
+
+button,a{font-family:inherit}
+
+button{cursor:pointer}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  background:#050403;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:1s ease;
+}
+
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-content{text-align:center}
+
+.loader-rings{
+  width:90px;
+  height:90px;
+  margin:auto;
+  border:1px solid rgba(216,179,106,.25);
+  border-radius:50%;
+  position:relative;
+  animation:spin 8s linear infinite;
+}
+
+.loader-rings:before,
+.loader-rings:after{
+  content:"";
+  position:absolute;
+  border:1px solid var(--gold);
+  border-radius:50%;
+}
+
+.loader-rings:before{inset:14px}
+.loader-rings:after{inset:29px}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.loader-text{
+  margin-top:22px;
+  color:var(--gold2);
+  letter-spacing:4px;
+  font-size:10px;
+  direction:ltr;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+  position:fixed;
+  inset:0;
+  z-index:9000;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#050403;
+  transition:1.4s cubic-bezier(.77,0,.18,1);
+}
+
+.intro.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.intro-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  animation:heroZoom 10s ease-out forwards;
+}
+
+@keyframes heroZoom{
+  from{transform:scale(1.12)}
+  to{transform:scale(1)}
+}
+
+.intro:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.68),
+      rgba(0,0,0,.1) 42%,
+      rgba(0,0,0,.8)
+    );
+}
+
+.intro:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  box-shadow:inset 0 0 180px rgba(0,0,0,.8);
+}
+
+.intro-content{
+  position:relative;
+  z-index:4;
+  width:min(900px,92%);
+  text-align:center;
+  animation:introContent 1.5s ease both;
+}
+
+@keyframes introContent{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.overline{
+  font-size:11px;
+  letter-spacing:6px;
+  color:#fff;
+  direction:ltr;
+}
+
+.gold-line{
+  width:95px;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold2),
+    transparent
+  );
+  margin:22px auto;
+}
+
+.intro-names,
+.hero-names,
+.footer-names{
+  font-family:"Great Vibes",cursive;
+  direction:ltr;
+}
+
+.intro-names{
+  font-size:clamp(65px,14vw,125px);
+  line-height:.95;
+  color:#fff;
+  text-shadow:0 0 40px rgba(216,179,106,.2);
+}
+
+.intro-date{
+  margin-top:25px;
+  font-size:13px;
+  letter-spacing:4px;
+  direction:ltr;
+  color:#fff;
+}
+
+.enter{
+  margin-top:38px;
+  padding:15px 38px;
+  border-radius:50px;
+  border:1px solid rgba(244,221,165,.7);
+  color:#fff;
+  background:rgba(0,0,0,.28);
+  backdrop-filter:blur(12px);
+  transition:.4s;
+}
+
+.enter:hover{
+  background:rgba(216,179,106,.18);
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(216,179,106,.15);
+}
+
+.tap{
+  position:absolute;
+  bottom:25px;
+  z-index:5;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:9px;
+  letter-spacing:3px;
+  color:#ddd;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music{
+  position:fixed;
+  z-index:7000;
+  left:20px;
+  top:20px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  color:var(--gold2);
+  background:rgba(8,7,6,.72);
+  backdrop-filter:blur(15px);
+  font-size:21px;
+  transition:.3s;
+}
+
+.music:hover{transform:scale(1.08)}
+
+.music.active{
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    box-shadow:
+      0 0 0 9px rgba(216,179,106,.04),
+      0 0 35px rgba(216,179,106,.22);
+  }
+}
+
+/* =========================
+   MAIN
+========================= */
+
+section{
+  position:relative;
+  padding:110px 20px;
+  overflow:hidden;
+}
+
+.container{
+  width:min(1100px,100%);
+  margin:auto;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-head small{
+  color:var(--gold);
+  letter-spacing:4px;
+  font-size:10px;
+}
+
+.section-head h2{
+  margin-top:10px;
+  font-family:"Great Vibes",cursive;
+  font-size:clamp(50px,10vw,80px);
+  font-weight:400;
+  direction:ltr;
+}
+
+.section-head .line{
+  width:80px;
+  height:1px;
+  margin:18px auto;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:-3%;
+  background:
+    linear-gradient(
+      rgba(5,4,3,.7),
+      rgba(5,4,3,.9)
+    ),
+    url("tito.jpg") center/cover;
+  filter:blur(2px);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero-small{
+  color:var(--gold2);
+  font-size:11px;
+  letter-spacing:5px;
+  direction:ltr;
+}
+
+.hero-names{
+  font-size:clamp(75px,16vw,155px);
+  line-height:.85;
+  margin:25px 0;
+}
+
+.hero-date{
+  direction:ltr;
+  letter-spacing:4px;
+  font-size:14px;
+}
+
+.ring{
+  position:absolute;
+  width:240px;
+  height:240px;
+  border:1px solid rgba(216,179,106,.12);
+  border-radius:50%;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+
+.ring:before,
+.ring:after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(216,179,106,.08);
+  border-radius:50%;
+}
+
+.ring:before{inset:-35px}
+.ring:after{inset:35px}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(216,179,106,.1),
+      transparent 45%
+    );
+  text-align:center;
+}
+
+.message{
+  width:min(820px,100%);
+  margin:auto;
+  min-height:230px;
+  color:#e5dbce;
+  font-weight:300;
+  font-size:clamp(15px,3vw,19px);
+  line-height:2.4;
+}
+
+.cursor{
+  display:inline-block;
+  width:2px;
+  height:20px;
+  background:var(--gold);
+  animation:blink .8s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0}
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section{
+  background:#0c0a08;
+}
+
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  width:min(720px,100%);
+  margin:auto;
+}
+
+.time{
+  min-height:125px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.025);
+}
+
+.time strong{
+  color:var(--gold2);
+  font-size:clamp(30px,7vw,48px);
+  font-weight:300;
+  direction:ltr;
+}
+
+.time span{
+  color:var(--muted);
+  font-size:10px;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.details{
+  background:#090806;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  text-align:center;
+  padding:40px 22px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.05),
+      rgba(255,255,255,.015)
+    );
+  transition:.5s;
+}
+
+.card:hover{
+  transform:translateY(-9px);
+  border-color:rgba(216,179,106,.55);
+}
+
+.icon{
+  color:var(--gold);
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+.card h3{
+  font-size:17px;
+  font-weight:500;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:2;
+  margin-top:8px;
+}
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-section{
+  background:#070605;
+}
+
+.photo-frame{
+  width:min(780px,100%);
+  margin:auto;
+  padding:10px;
+  border:1px solid var(--line);
+  box-shadow:0 35px 100px rgba(0,0,0,.5);
+}
+
+.photo-frame img{
+  width:100%;
+  display:block;
+}
+
+.photo-title{
+  text-align:center;
+  font-family:"Great Vibes",cursive;
+  font-size:45px;
+  color:var(--gold2);
+  direction:ltr;
+  margin-top:25px;
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story{
+  text-align:center;
+  background:
+    radial-gradient(
+      circle,
+      rgba(216,179,106,.06),
+      transparent 55%
+    );
+}
+
+.story-copy{
+  width:min(750px,100%);
+  margin:auto;
+  color:#d2c7b9;
+  line-height:2.5;
+  font-size:16px;
+  font-weight:300;
+}
+
+.story-copy strong{
+  display:block;
+  font-family:"Great Vibes",cursive;
+  direction:ltr;
+  color:var(--gold2);
+  font-size:45px;
+  font-weight:400;
+  margin-top:25px;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-section{
+  background:#0b0907;
+}
+
+.timeline{
+  width:min(700px,100%);
+  margin:auto;
+  position:relative;
+}
+
+.timeline:before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:50%;
+  width:1px;
+  background:linear-gradient(
+    var(--gold),
+    transparent
+  );
+}
+
+.timeline-item{
+  position:relative;
+  width:50%;
+  padding:15px 30px;
+}
+
+.timeline-item:nth-child(odd){
+  text-align:left;
+  left:0;
+}
+
+.timeline-item:nth-child(even){
+  right:0;
+  text-align:right;
+}
+
+.timeline-dot{
+  position:absolute;
+  width:11px;
+  height:11px;
+  border:1px solid var(--gold2);
+  border-radius:50%;
+  background:var(--dark);
+  top:28px;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+  right:-6px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+  left:-6px;
+}
+
+.timeline-item h3{
+  color:var(--gold2);
+  font-size:15px;
+}
+
+.timeline-item p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+  text-align:center;
+}
+
+.location-box{
+  width:min(680px,100%);
+  margin:auto;
+  padding:55px 25px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.025);
+}
+
+.location-icon{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.location-box h3{
+  font-size:22px;
+  font-weight:500;
+}
+
+.location-box p{
+  color:var(--muted);
+  font-size:13px;
+  margin:12px 0 28px;
+  line-height:2;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--gold);
+  color:#fff;
+  background:rgba(216,179,106,.06);
+  padding:13px 28px;
+  border-radius:50px;
+  text-decoration:none;
+  transition:.35s;
+  font-size:13px;
+}
+
+.btn:hover{
+  background:var(--gold);
+  color:#080706;
+  transform:translateY(-3px);
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions{
+  text-align:center;
+  background:#070605;
+}
+
+.actions-wrap{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    linear-gradient(
+      rgba(5,4,3,.78),
+      rgba(5,4,3,.95)
+    ),
+    url("tito.jpg") center/cover;
+}
+
+.final-content{
+  position:relative;
+  z-index:2;
+}
+
+.final-small{
+  letter-spacing:5px;
+  font-size:10px;
+  direction:ltr;
+}
+
+.final-names{
+  font-family:"Great Vibes",cursive;
+  font-size:clamp(65px,13vw,115px);
+  direction:ltr;
+  color:var(--gold2);
+  margin:20px 0;
+}
+
+.final p{
+  color:#c5baad;
+  font-size:13px;
+}
+
+.final-heart{
+  margin-top:25px;
+  color:var(--gold);
+  font-size:22px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#050403;
+  text-align:center;
+  padding:60px 20px;
+  border-top:1px solid rgba(216,179,106,.1);
+}
+
+.footer-names{
+  font-size:55px;
+  color:var(--gold2);
+}
+
+footer small{
+  color:#6e675f;
+  letter-spacing:2px;
+  direction:ltr;
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+#particles{
+  position:fixed;
+  inset:0;
+  z-index:20;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.particle{
+  position:absolute;
+  bottom:-10px;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:var(--gold2);
+  opacity:0;
+  animation:float linear infinite;
+}
+
+@keyframes float{
+  10%{opacity:.45}
+  90%{opacity:.2}
+  100%{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+/* =========================
+   HEART POP
+========================= */
+
+.heart-pop{
+  position:fixed;
+  z-index:8000;
+  pointer-events:none;
+  color:var(--gold2);
+  font-size:18px;
+  animation:heartUp 1.4s ease forwards;
+}
+
+@keyframes heartUp{
+  from{
+    opacity:1;
+    transform:translate(-50%,0) scale(.7);
+  }
+  to{
+    opacity:0;
+    transform:translate(-50%,-100px) scale(1.4);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+  section{padding:80px 18px}
+
+  .intro-names{font-size:70px}
+
+  .hero-names{font-size:80px}
+
+  .cards{grid-template-columns:1fr}
+
+  .countdown{gap:6px}
+
+  .time{min-height:100px}
+
+  .time strong{font-size:29px}
+
+  .message{
+    font-size:15px;
+    min-height:310px;
+  }
+
+  .timeline:before{right:10px}
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even){
+    width:100%;
+    right:auto;
+    left:auto;
+    text-align:right;
+    padding-right:35px;
+    padding-left:10px;
+  }
+
+  .timeline-item .timeline-dot,
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot{
+    right:4px;
+    left:auto;
+  }
+
+  .footer-names{font-size:47px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
 </head>
 
 <body class="locked">
 
-  <!-- =========================
-       INTRO
-  ========================== -->
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-rings"></div>
+    <div class="loader-text">MOHAMED & EMAN</div>
+  </div>
+</div>
 
-  <div class="intro" id="intro">
+<!-- INTRO -->
+<div class="intro" id="intro">
 
-    <img
-      src="tito.jpg"
-      alt="Mohamed & Eman Wedding"
-      class="intro-photo"
-    >
+  <img
+    src="tito.jpg"
+    class="intro-photo"
+    alt="Mohamed & Eman">
 
-    <div class="intro-content">
+  <div class="intro-content">
 
-      <div class="small-title">
-        YOU ARE INVITED TO OUR
-      </div>
-
-      <div class="invite-line"></div>
-
-      <div class="intro-names">
-        Mohamed & Eman
-      </div>
-
-      <div class="intro-date">
-        03 OCTOBER 2026 &nbsp; • &nbsp; 07:00 PM
-      </div>
-
-      <button class="enter-btn" id="enterBtn">
-        ENTER OUR WEDDING ♥
-      </button>
-
+    <div class="overline">
+      YOU ARE INVITED TO OUR WEDDING
     </div>
 
-    <div class="scroll-hint">
-      TAP TO ENTER
+    <div class="gold-line"></div>
+
+    <div class="intro-names">
+      Mohamed & Eman
+    </div>
+
+    <div class="intro-date">
+      03 OCTOBER 2026 &nbsp; • &nbsp; 07:00 PM
+    </div>
+
+    <button class="enter" id="enter">
+      ENTER OUR WEDDING ♥
+    </button>
+
+  </div>
+
+  <div class="tap">
+    TAP TO ENTER
+  </div>
+
+</div>
+
+<!-- MUSIC -->
+<audio id="musicAudio" src="tito.mp3" loop preload="auto"></audio>
+
+<button class="music" id="musicBtn" aria-label="Music">
+  ♪
+</button>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-bg"></div>
+
+  <div class="ring"></div>
+
+  <div class="hero-content reveal">
+
+    <div class="hero-small">
+      TOGETHER WITH THEIR FAMILIES
+    </div>
+
+    <div class="hero-names">
+      Mohamed & Eman
+    </div>
+
+    <div class="hero-date">
+      03 OCTOBER 2026
+      <br>
+      07:00 PM
     </div>
 
   </div>
 
+</section>
 
-  <!-- MUSIC -->
+<!-- WELCOME -->
+<section class="welcome">
 
-  <audio
-    id="weddingMusic"
-    src="tito.mp3"
-    loop
-    preload="auto">
-  </audio>
+  <div class="container">
 
-  <button
-    class="music-btn"
-    id="musicBtn"
-    aria-label="Music">
-    ♪
-  </button>
+    <div class="section-head reveal">
 
+      <small>WELCOME</small>
 
-  <!-- PARTICLES -->
+      <h2>
+        A Special Message
+      </h2>
 
-  <div class="particles" id="particles"></div>
+      <div class="line"></div>
 
+    </div>
 
-  <!-- =========================
-       MAIN
-  ========================== -->
+    <div class="message reveal" id="message"></div>
+    <span class="cursor"></span>
 
-  <main>
+  </div>
 
-    <!-- HERO -->
+</section>
 
-    <section class="hero">
+<!-- COUNTDOWN -->
+<section class="countdown-section">
 
-      <div class="hero-bg"></div>
+  <div class="container">
 
-      <div class="gold-ring"></div>
+    <div class="section-head reveal">
 
-      <div class="hero-content reveal">
+      <small>THE BIG DAY</small>
 
-        <div class="hero-subtitle">
-          TOGETHER WITH THEIR FAMILIES
-        </div>
+      <h2>
+        Save The Date
+      </h2>
 
-        <div class="hero-names">
+      <div class="line"></div>
+
+    </div>
+
+    <div class="countdown reveal">
+
+      <div class="time">
+        <strong id="days">00</strong>
+        <span>أيام</span>
+      </div>
+
+      <div class="time">
+        <strong id="hours">00</strong>
+        <span>ساعات</span>
+      </div>
+
+      <div class="time">
+        <strong id="minutes">00</strong>
+        <span>دقائق</span>
+      </div>
+
+      <div class="time">
+        <strong id="seconds">00</strong>
+        <span>ثواني</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- DETAILS -->
+<section class="details">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <small>OUR DAY</small>
+
+      <h2>
+        Wedding Details
+      </h2>
+
+      <div class="line"></div>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card reveal">
+
+        <div class="icon">♡</div>
+
+        <h3>
+          The Couple
+        </h3>
+
+        <p>
           Mohamed & Eman
-        </div>
-
-        <div class="hero-date">
-          03 OCTOBER 2026
           <br>
+          Together begins forever.
+        </p>
+
+      </div>
+
+      <div class="card reveal">
+
+        <div class="icon">♢</div>
+
+        <h3>
+          The Date
+        </h3>
+
+        <p>
+          Saturday
+          <br>
+          03 October 2026
+        </p>
+
+      </div>
+
+      <div class="card reveal">
+
+        <div class="icon">◷</div>
+
+        <h3>
+          The Time
+        </h3>
+
+        <p>
           07:00 PM
-        </div>
+          <br>
+          We are waiting for you
+        </p>
 
       </div>
 
-    </section>
+    </div>
 
+  </div>
 
-    <!-- WELCOME -->
+</section>
 
-    <section class="welcome">
+<!-- PHOTO -->
+<section class="photo-section">
 
-      <div class="container">
+  <div class="container">
 
-        <div class="section-title reveal">
-          <div class="mini">WELCOME</div>
+    <div class="section-head reveal">
 
-          <h2>
-            A Special Message
-          </h2>
+      <small>OUR MOMENT</small>
 
-          <div class="line"></div>
-        </div>
+      <h2>
+        Forever Starts Here
+      </h2>
 
-        <div class="welcome-box reveal">
+      <div class="line"></div>
 
-          <div
-            class="typing-text"
-            id="typingText">
-          </div>
+    </div>
 
-          <span class="cursor"></span>
+    <div class="photo-frame reveal">
 
-        </div>
+      <img
+        src="tito.jpg"
+        alt="Mohamed & Eman">
 
-      </div>
+    </div>
 
-    </section>
+    <div class="photo-title reveal">
+      Mohamed & Eman
+    </div>
 
+  </div>
 
-    <!-- COUNTDOWN -->
+</section>
 
-    <section class="countdown-section">
+<!-- STORY -->
+<section class="story">
 
-      <div class="container">
+  <div class="container">
 
-        <div class="section-title reveal">
+    <div class="section-head reveal">
 
-          <div class="mini">
-            THE BIG DAY
-          </div>
+      <small>OUR STORY</small>
 
-          <h2>
-            Save The Date
-          </h2>
+      <h2>
+        A New Beginning
+      </h2>
 
-          <div class="line"></div>
+      <div class="line"></div>
 
-        </div>
+    </div>
 
+    <div class="story-copy reveal">
 
-        <div class="countdown reveal">
+      في يوم مميز زي ده، تبدأ حكاية جديدة،
+      وتتحول لحظة جميلة إلى ذكرى تعيش معانا العمر كله.
 
-          <div class="time-box">
-            <strong id="days">00</strong>
-            <span>أيام</span>
-          </div>
+      <br><br>
 
-          <div class="time-box">
-            <strong id="hours">00</strong>
-            <span>ساعات</span>
-          </div>
+      وجودكم معانا هو اللي هيكمل فرحتنا،
+      وهنكون مبسوطين جدًا إنكم تشاركونا
+      أول خطوة في أجمل فصل من حكايتنا.
 
-          <div class="time-box">
-            <strong id="minutes">00</strong>
-            <span>دقائق</span>
-          </div>
+      <strong>
+        Forever & Always
+      </strong>
 
-          <div class="time-box">
-            <strong id="seconds">00</strong>
-            <span>ثواني</span>
-          </div>
+    </div>
 
-        </div>
+  </div>
 
-      </div>
+</section>
 
-    </section>
+<!-- TIMELINE -->
+<section class="timeline-section">
 
+  <div class="container">
 
-    <!-- DETAILS -->
+    <div class="section-head reveal">
 
-    <section class="details">
+      <small>THE CELEBRATION</small>
 
-      <div class="container">
+      <h2>
+        Our Special Day
+      </h2>
 
-        <div class="section-title reveal">
+      <div class="line"></div>
 
-          <div class="mini">
-            OUR DAY
-          </div>
+    </div>
 
-          <h2>
-            Wedding Details
-          </h2>
+    <div class="timeline">
 
-          <div class="line"></div>
+      <div class="timeline-item reveal">
 
-        </div>
+        <span class="timeline-dot"></span>
 
+        <h3>
+          The Celebration
+        </h3>
 
-        <div class="cards">
-
-          <div class="card reveal">
-
-            <div class="card-icon">
-              ♡
-            </div>
-
-            <h3>
-              The Couple
-            </h3>
-
-            <p>
-              Mohamed & Eman
-              <br>
-              Together begins forever.
-            </p>
-
-          </div>
-
-
-          <div class="card reveal">
-
-            <div class="card-icon">
-              ♢
-            </div>
-
-            <h3>
-              The Date
-            </h3>
-
-            <p>
-              Saturday
-              <br>
-              03 October 2026
-            </p>
-
-          </div>
-
-
-          <div class="card reveal">
-
-            <div class="card-icon">
-              ◷
-            </div>
-
-            <h3>
-              The Time
-            </h3>
-
-            <p>
-              07:00 PM
-              <br>
-              We are waiting for you
-            </p>
-
-          </div>
-
-        </div>
+        <p>
+          بداية اليوم المميز
+        </p>
 
       </div>
 
-    </section>
+      <div class="timeline-item reveal">
 
+        <span class="timeline-dot"></span>
 
-    <!-- PHOTO -->
-
-    <section class="photo-section">
-
-      <div class="container">
-
-        <div class="section-title reveal">
-
-          <div class="mini">
-            OUR MOMENT
-          </div>
-
-          <h2>
-            Forever Starts Here
-          </h2>
-
-          <div class="line"></div>
-
-        </div>
-
-        <div class="photo-frame reveal">
-
-          <img
-            src="tito.jpg"
-            alt="Mohamed & Eman">
-
-        </div>
-
-        <div class="photo-caption reveal">
+        <h3>
           Mohamed & Eman
-        </div>
+        </h3>
+
+        <p>
+          لحظتنا المنتظرة
+        </p>
 
       </div>
 
-    </section>
+      <div class="timeline-item reveal">
 
+        <span class="timeline-dot"></span>
 
-    <!-- STORY -->
+        <h3>
+          Forever Begins
+        </h3>
 
-    <section class="story">
-
-      <div class="container">
-
-        <div class="section-title reveal">
-
-          <div class="mini">
-            OUR STORY
-          </div>
-
-          <h2>
-            A New Beginning
-          </h2>
-
-          <div class="line"></div>
-
-        </div>
-
-        <div class="story-text reveal">
-
-          في يوم مميز زي ده، تبدأ حكاية جديدة،
-          وتتحول لحظة جميلة إلى ذكرى تعيش معانا العمر كله.
-          <br><br>
-
-          وجودكم معانا هو اللي هيكمل فرحتنا،
-          وهنكون مبسوطين جدًا إنكم تشاركونا
-          أول خطوة في أجمل فصل من حكايتنا.
-
-          <span class="story-highlight">
-            Forever & Always
-          </span>
-
-        </div>
+        <p>
+          بداية فصل جديد
+        </p>
 
       </div>
 
-    </section>
+    </div>
 
+  </div>
 
-    <!-- LOCATION -->
+</section>
 
-    <section class="location">
+<!-- LOCATION -->
+<section class="location">
 
-      <div class="container">
+  <div class="container">
 
-        <div class="section-title reveal">
+    <div class="section-head reveal">
 
-          <div class="mini">
-            JOIN US
-          </div>
+      <small>JOIN US</small>
 
-          <h2>
-            The Location
-          </h2>
+      <h2>
+        The Location
+      </h2>
 
-          <div class="line"></div>
+      <div class="line"></div>
 
-        </div>
+    </div>
 
+    <div class="location-box reveal">
 
-        <div class="location-box reveal">
-
-          <div class="location-icon">
-            📍
-          </div>
-
-          <h3>
-            Wedding Venue
-          </h3>
-
-          <p>
-            03 October 2026
-            <br>
-            07:00 PM
-          </p>
-
-          <a
-            class="gold-btn"
-            href="https://maps.app.goo.gl/387uoNtVXpRmkVr47"
-            target="_blank"
-            rel="noopener">
-            فتح الموقع على الخريطة
-          </a>
-
-        </div>
-
+      <div class="location-icon">
+        📍
       </div>
 
-    </section>
+      <h3>
+        Wedding Venue
+      </h3>
 
+      <p>
+        03 October 2026
+        <br>
+        07:00 PM
+      </p>
 
-    <!-- ACTIONS -->
+      <a
+        class="btn"
+        href="https://maps.app.goo.gl/387uoNtVXpRmkVr47"
+        target="_blank"
+        rel="noopener">
+        فتح الموقع على الخريطة
+      </a>
 
-    <section class="actions">
+    </div>
 
-      <div class="container">
+  </div>
 
-        <div class="section-title reveal">
+</section>
 
-          <div class="mini">
-            MAKE IT SPECIAL
-          </div>
+<!-- ACTIONS -->
+<section class="actions">
 
-          <h2>
-            Join Our Celebration
-          </h2>
+  <div class="container">
 
-          <div class="line"></div>
+    <div class="section-head reveal">
 
-        </div>
+      <small>MAKE IT SPECIAL</small>
 
+      <h2>
+        Join Our Celebration
+      </h2>
 
-        <div class="action-buttons reveal">
+      <div class="line"></div>
 
-          <button
-            class="gold-btn"
-            id="calendarBtn">
-            📅 إضافة للتقويم
-          </button>
+    </div>
 
-          <button
-            class="gold-btn"
-            id="shareBtn">
-            ♡ مشاركة الدعوة
-          </button>
+    <div class="actions-wrap reveal">
 
-        </div>
+      <button
+        class="btn"
+        id="calendarBtn">
+        📅 إضافة للتقويم
+      </button>
 
-      </div>
+      <button
+        class="btn"
+        id="shareBtn">
+        ♡ مشاركة الدعوة
+      </button>
 
-    </section>
+    </div>
 
-  </main>
+  </div>
 
+</section>
 
-  <!-- FOOTER -->
+<!-- FINAL -->
+<section class="final">
 
-  <footer>
+  <div class="final-content reveal">
 
-    <div class="footer-names">
+    <div class="final-small">
+      THANK YOU FOR BEING PART OF OUR DAY
+    </div>
+
+    <div class="final-names">
       Mohamed & Eman
     </div>
 
     <p>
-      03 • 10 • 2026
+      أجمل اللحظات هي التي نعيشها مع من نحب
     </p>
 
-  </footer>
+    <div class="final-heart">
+      ♥
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+
+  <div class="footer-names">
+    Mohamed & Eman
+  </div>
+
+  <small>
+    03 • 10 • 2026
+  </small>
+
+</footer>
+
+<script>
+
+/* =========================
+   LOADER
+========================= */
+
+window.addEventListener("load",()=>{
+
+  setTimeout(()=>{
+
+    document.getElementById("loader")
+      .classList.add("hide");
+
+  },900);
+
+});
 
 
-  <script>
+/* =========================
+   INTRO + MUSIC
+========================= */
 
-    /* =========================
-       ELEMENTS
-    ========================== */
+const intro =
+  document.getElementById("intro");
 
-    const intro = document.getElementById("intro");
-    const enterBtn = document.getElementById("enterBtn");
-    const music = document.getElementById("weddingMusic");
-    const musicBtn = document.getElementById("musicBtn");
+const enter =
+  document.getElementById("enter");
 
-    let musicPlaying = false;
+const audio =
+  document.getElementById("musicAudio");
+
+const musicBtn =
+  document.getElementById("musicBtn");
+
+async function playMusic(){
+
+  try{
+
+    await audio.play();
+
+    musicBtn.classList.add("active");
+    musicBtn.textContent="♫";
+
+  }catch(e){
+
+    musicBtn.classList.remove("active");
+    musicBtn.textContent="♪";
+
+  }
+
+}
+
+enter.addEventListener("click",async()=>{
+
+  await playMusic();
+
+  intro.classList.add("hide");
+
+  document.body.classList.remove("locked");
+
+});
+
+window.addEventListener("load",()=>{
+
+  playMusic();
+
+});
+
+musicBtn.addEventListener("click",async()=>{
+
+  if(audio.paused){
+
+    await playMusic();
+
+  }else{
+
+    audio.pause();
+
+    musicBtn.classList.remove("active");
+    musicBtn.textContent="♪";
+
+  }
+
+});
 
 
-    /* =========================
-       MUSIC
-    ========================== */
+/* =========================
+   COUNTDOWN
+========================= */
 
-    async function playMusic() {
+const weddingDate =
+  new Date("2026-10-03T19:00:00+03:00")
+  .getTime();
 
-      try {
+function countdown(){
 
-        await music.play();
+  const distance =
+    weddingDate-Date.now();
 
-        musicPlaying = true;
+  if(distance<=0){
 
-        musicBtn.classList.add("playing");
-        musicBtn.textContent = "♫";
+    ["days","hours","minutes","seconds"]
+      .forEach(id=>{
+        document.getElementById(id)
+          .textContent="00";
+      });
 
-      } catch (error) {
+    return;
 
-        musicPlaying = false;
+  }
 
-        musicBtn.classList.remove("playing");
-        musicBtn.textContent = "♪";
+  const d =
+    Math.floor(
+      distance/(1000*60*60*24)
+    );
 
-      }
+  const h =
+    Math.floor(
+      distance/(1000*60*60)%24
+    );
+
+  const m =
+    Math.floor(
+      distance/(1000*60)%60
+    );
+
+  const s =
+    Math.floor(
+      distance/1000%60
+    );
+
+  document.getElementById("days")
+    .textContent=String(d).padStart(2,"0");
+
+  document.getElementById("hours")
+    .textContent=String(h).padStart(2,"0");
+
+  document.getElementById("minutes")
+    .textContent=String(m).padStart(2,"0");
+
+  document.getElementById("seconds")
+    .textContent=String(s).padStart(2,"0");
+
+}
+
+countdown();
+setInterval(countdown,1000);
+
+
+/* =========================
+   TYPING
+========================= */
+
+const text =
+"بما إنك وصلت لهنا، يبقى أكيد إنت شخص غالي علينا جدًا ❤️ ووجودك في يومنا ده مش مجرد حضور... إنت جزء من الفرحة، وجزء من الذكريات اللي هتفضل معانا العمر كله. شكرًا إنك هتشاركنا أجمل بداية في حكايتنا. مستنيينك تكون معانا ونعيش سوا أجمل لحظات يومنا.";
+
+const message =
+  document.getElementById("message");
+
+let typed=false;
+
+function startTyping(){
+
+  if(typed)return;
+
+  typed=true;
+
+  let i=0;
+
+  function next(){
+
+    if(i<text.length){
+
+      message.textContent += text[i];
+
+      let delay=35;
+
+      if(
+        text[i]==="،" ||
+        text[i]==="."
+      ) delay=220;
+
+      if(
+        text[i]==="!" ||
+        text[i]==="؟"
+      ) delay=320;
+
+      i++;
+
+      setTimeout(next,delay);
 
     }
 
+  }
 
-    function pauseMusic() {
+  next();
 
-      music.pause();
+}
 
-      musicPlaying = false;
 
-      musicBtn.classList.remove("playing");
-      musicBtn.textContent = "♪";
+/* =========================
+   REVEAL
+========================= */
 
-    }
+const revealObserver =
+  new IntersectionObserver(
+    entries=>{
 
+      entries.forEach(entry=>{
 
-    musicBtn.addEventListener("click", async () => {
+        if(entry.isIntersecting){
 
-      if (music.paused) {
+          entry.target
+            .classList.add("show");
 
-        await playMusic();
-
-      } else {
-
-        pauseMusic();
-
-      }
-
-    });
-
-
-    /* =========================
-       ENTER
-    ========================== */
-
-    enterBtn.addEventListener("click", async () => {
-
-      await playMusic();
-
-      intro.classList.add("hide");
-
-      document.body.classList.remove("locked");
-
-      setTimeout(() => {
-
-        document.getElementById("typingText")
-          .scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
-
-      }, 1100);
-
-    });
-
-
-    /* =========================
-       TRY AUTOPLAY
-    ========================== */
-
-    window.addEventListener("load", () => {
-
-      playMusic();
-
-    });
-
-
-    /* =========================
-       COUNTDOWN
-    ========================== */
-
-    const weddingDate =
-      new Date("2026-10-03T19:00:00+03:00").getTime();
-
-
-    function updateCountdown() {
-
-      const now = Date.now();
-
-      const distance = weddingDate - now;
-
-
-      if (distance <= 0) {
-
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-
-        return;
-
-      }
-
-
-      const days =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
-
-      const hours =
-        Math.floor(
-          (distance / (1000 * 60 * 60)) % 24
-        );
-
-      const minutes =
-        Math.floor(
-          (distance / (1000 * 60)) % 60
-        );
-
-      const seconds =
-        Math.floor(
-          (distance / 1000) % 60
-        );
-
-
-      document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
-      document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-      document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-      document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-
-    }
-
-
-    updateCountdown();
-
-    setInterval(updateCountdown, 1000);
-
-
-    /* =========================
-       TYPING MESSAGE
-    ========================== */
-
-    const message =
-      "بما إنك وصلت لهنا، يبقى أكيد إنت شخص غالي علينا جدًا ❤️ ووجودك في يومنا ده مش مجرد حضور... إنت جزء من الفرحة، وجزء من الذكريات اللي هتفضل معانا العمر كله. شكرًا إنك هتشاركنا أجمل بداية في حكايتنا. مستنيينك تكون معانا ونعيش سوا أجمل لحظات يومنا.";
-
-
-    const typingText =
-      document.getElementById("typingText");
-
-
-    let typed = false;
-
-
-    function startTyping() {
-
-      if (typed) return;
-
-      typed = true;
-
-      let index = 0;
-
-      function typeNext() {
-
-        if (index < message.length) {
-
-          typingText.textContent += message.charAt(index);
-
-          index++;
-
-          let delay = 38;
-
-          if (
-            message.charAt(index - 1) === "،" ||
-            message.charAt(index - 1) === "."
-          ) {
-            delay = 240;
+          if(entry.target===message){
+            startTyping();
           }
 
-          if (
-            message.charAt(index - 1) === "!"
-          ) {
-            delay = 350;
-          }
-
-          setTimeout(typeNext, delay);
-
         }
-
-      }
-
-      typeNext();
-
-    }
-
-
-    /* =========================
-       REVEAL
-    ========================== */
-
-    const observer =
-      new IntersectionObserver(
-        entries => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add("show");
-
-              if (
-                entry.target.id === "typingText"
-              ) {
-                startTyping();
-              }
-
-            }
-
-          });
-
-        },
-        {
-          threshold: .15
-        }
-      );
-
-
-    document
-      .querySelectorAll(".reveal, #typingText")
-      .forEach(element => {
-
-        observer.observe(element);
 
       });
 
+    },
+    {threshold:.15}
+  );
 
-    /* =========================
-       PARTICLES
-    ========================== */
-
-    const particles =
-      document.getElementById("particles");
-
-
-    for (let i = 0; i < 28; i++) {
-
-      const particle =
-        document.createElement("div");
-
-      particle.className = "particle";
-
-      particle.style.left =
-        Math.random() * 100 + "%";
-
-      particle.style.animationDuration =
-        (7 + Math.random() * 10) + "s";
-
-      particle.style.animationDelay =
-        Math.random() * 8 + "s";
-
-      particle.style.transform =
-        `scale(${.5 + Math.random() * 1.4})`;
-
-      particles.appendChild(particle);
-
-    }
+document
+  .querySelectorAll(".reveal")
+  .forEach(el=>{
+    revealObserver.observe(el);
+  });
 
 
-    /* =========================
-       ADD TO CALENDAR
-    ========================== */
+/* =========================
+   PARTICLES
+========================= */
 
-    document
-      .getElementById("calendarBtn")
-      .addEventListener("click", () => {
+const particleBox =
+  document.getElementById("particles");
 
-        const event =
+for(let i=0;i<35;i++){
+
+  const p =
+    document.createElement("span");
+
+  p.className="particle";
+
+  p.style.left =
+    Math.random()*100+"%";
+
+  p.style.animationDuration =
+    7+Math.random()*12+"s";
+
+  p.style.animationDelay =
+    Math.random()*10+"s";
+
+  p.style.width =
+    p.style.height =
+    2+Math.random()*3+"px";
+
+  particleBox.appendChild(p);
+
+}
+
+
+/* =========================
+   HEART EFFECT
+========================= */
+
+document.addEventListener("click",e=>{
+
+  if(
+    e.target.closest("button") ||
+    e.target.closest("a")
+  ) return;
+
+  const heart =
+    document.createElement("div");
+
+  heart.className="heart-pop";
+
+  heart.textContent="♥";
+
+  heart.style.left=e.clientX+"px";
+  heart.style.top=e.clientY+"px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },1400);
+
+});
+
+
+/* =========================
+   CALENDAR
+========================= */
+
+document
+  .getElementById("calendarBtn")
+  .addEventListener("click",()=>{
+
+    const event =
 `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Mohamed & Eman//Wedding//EN
 BEGIN:VEVENT
-UID:mohamed-eman-wedding-2026@example.com
+UID:mohamed-eman-wedding-2026
 DTSTAMP:20260927T000000Z
 DTSTART:20261003T190000
 DTEND:20261003T230000
 SUMMARY:Mohamed & Eman Wedding
 DESCRIPTION:Wedding Invitation - Mohamed & Eman
-LOCATION:Wedding Venue
 END:VEVENT
 END:VCALENDAR`;
 
+    const blob =
+      new Blob(
+        [event],
+        {type:"text/calendar;charset=utf-8"}
+      );
 
-        const blob =
-          new Blob(
-            [event],
-            { type: "text/calendar;charset=utf-8" }
-          );
+    const url =
+      URL.createObjectURL(blob);
 
+    const a =
+      document.createElement("a");
 
-        const url =
-          URL.createObjectURL(blob);
+    a.href=url;
+    a.download="Mohamed-Eman-Wedding.ics";
 
+    document.body.appendChild(a);
 
-        const link =
-          document.createElement("a");
+    a.click();
 
-        link.href = url;
-        link.download = "Mohamed-Eman-Wedding.ics";
+    a.remove();
 
-        document.body.appendChild(link);
+    URL.revokeObjectURL(url);
 
-        link.click();
-
-        link.remove();
-
-        URL.revokeObjectURL(url);
-
-      });
+  });
 
 
-    /* =========================
-       SHARE
-    ========================== */
+/* =========================
+   SHARE
+========================= */
 
-    document
-      .getElementById("shareBtn")
-      .addEventListener("click", async () => {
+document
+  .getElementById("shareBtn")
+  .addEventListener("click",async()=>{
 
-        const shareData = {
+    const data={
+      title:"Mohamed & Eman | Wedding",
+      text:"You're invited to Mohamed & Eman's Wedding ❤️",
+      url:window.location.href
+    };
 
-          title:
-            "Mohamed & Eman | Wedding Invitation",
+    try{
 
-          text:
-            "You're invited to Mohamed & Eman's Wedding ❤️",
+      if(navigator.share){
 
-          url:
-            window.location.href
+        await navigator.share(data);
 
-        };
+      }else{
 
+        await navigator.clipboard
+          .writeText(window.location.href);
 
-        try {
+        alert("تم نسخ لينك الدعوة ❤️");
 
-          if (navigator.share) {
+      }
 
-            await navigator.share(shareData);
+    }catch(e){}
 
-          } else {
+  });
 
-            await navigator.clipboard.writeText(
-              window.location.href
-            );
-
-            alert(
-              "تم نسخ لينك الدعوة ❤️"
-            );
-
-          }
-
-        } catch (error) {
-
-          // المستخدم قفل نافذة المشاركة
-
-        }
-
-      });
-
-
-  </script>
+</script>
 
 </body>
 </html>
